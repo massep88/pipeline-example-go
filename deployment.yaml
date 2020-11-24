@@ -11,24 +11,6 @@ spec:
       port: 80
       targetPort: 80
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: helloserver-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /testgo
-        pathType: Prefix
-        backend:
-          service:
-            name: helloserver-service
-            port:
-              number: 80
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
